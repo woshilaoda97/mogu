@@ -1,0 +1,22 @@
+{
+  "name": "mogu",
+  "version": "1.0.0",
+  "description": "mogujie project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/woshilaoda97/mogu.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/woshilaoda97/mogu/issues"
+  },
+  "homepage": "https://github.com/woshilaoda97/mogu#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}

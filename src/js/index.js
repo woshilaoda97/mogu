@@ -1,15 +1,15 @@
-import { $ } from './util.js';
+import { $ } from './DOMutil.js';
 import { ajax } from './ajaxpromise.js';
 class GoodList {
     constructor() {
-        this.outerWrap = $('#outer-wrap');
         this.wrap = $('#wrap');
+        this.bli =  $('.bli');
     }
     init() {
         this.render()
     }
     render() {
-        window.onload = () => {//
+        window.onload = () => {//按照不同屏幕宽度设置列数
             let cw = document.body.clientWidth;
             if (cw >= 1686) {
                 this.setLayout('lgLayout',1686);
@@ -20,17 +20,22 @@ class GoodList {
             }
         }
     }
+    picLoad(){
+
+    }
     setLayout(size,minWid) {
         let left = 0
         if (size === 'mdLayout' || size === 'smLayout') {
+            
             left = 244;
         } else {
             left = 488;
         }
+        //按照屏幕宽度设置中间块的left
+        this.bli.css(`left:${left/100}rem`)
         let modelLayout = `
             <div class="li" style="margin-top:12.02rem"></div>
             <div class="li" style="margin-top:12.02rem"></div>
-            <div class="bli" style="left:${left/100}rem"></div>
             `;
         let smLayout = `
             ${modelLayout}
@@ -48,13 +53,15 @@ class GoodList {
             <div class="li"></div>
             <div class="li" style="margin-right:0"></div>
         `;
-        let str = size === 'smLayout' ? smLayout : (size === 'smLayout' ? smLayout : (size === 'mdLayout' ? mdLayout : (size === 'lgLayout' ? lgLayout : null)));
+        let str = size === 'smLayout' ? smLayout : (size === 'mdLayout' ? mdLayout : lgLayout);
+        let searchWidth = size === 'smLayout' ? 2.8 : (size === 'mdLayout'?5.52:9)
         let w = `width:${minWid/100}rem`
-        this.wrap.innerHTML += str;
-        this.wrap.style.cssText = w;
-        $('.header-nav-wrap').style.cssText = w;
-        $('.header-wrap').style.cssText = w;
-        this.outerWrap.style.cssText = `min-width:${(minWid+30)/100}rem`;
+        this.wrap.html(str,true);
+        this.wrap.css(w);
+        $('.header-nav-wrap').css(w);
+        $('.header-wrap').css(w);
+        $('.normal-search-content').css(`width:${searchWidth}rem`)
+        $('#outer-wrap').css(`min-width:${(minWid+30)/100}rem`);
     }
     testData(){
         
