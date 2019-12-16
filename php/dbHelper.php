@@ -3,7 +3,7 @@ class db{//数据库简单操作封装
     private $db_ip = 'localhost';
     private $db_user = 'root';
     private $db_pwd = '123456';
-    private $db_database = 'shopcar';
+    private $db_database = 'mogu';
     private $conn;
     //连接封装
     public function connect(){

@@ -1,12 +1,12 @@
-import { $ } from './DOMutil.js.js';
-import { ajax } from './ajaxpromise.js.js';
+import { $ } from './DOMutil.js';
+import { ajax } from './ajaxpromise.js';
 class GoodList {
     constructor() {
         this.wrap = $('#wrap');
         this.bli =  $('.bli');
     }
     init() {
-        this.render()
+        this.render();
     }
     render() {
         window.onload = () => {//按照不同屏幕宽度设置列数
@@ -19,9 +19,15 @@ class GoodList {
                 this.setLayout('smLayout',954);
             }
         }
+        this.picLoad();
     }
     picLoad(){
-
+        ajax({
+            url:"http://localhost/mogu/php/good_show.php",
+            dataType:"json"
+        }).then((data)=>{
+            console.log(data);
+        })
     }
     setLayout(size,minWid) {
         let left = 0
@@ -60,7 +66,7 @@ class GoodList {
         this.wrap.css(w);
         $('.header-nav-wrap').css(w);
         $('.header-wrap').css(w);
-        $('.normal-search-content').css(`width:${searchWidth}rem`)
+        $('.normal-search-content').css(`width:${searchWidth}rem`);
         $('#outer-wrap').css(`min-width:${(minWid+30)/100}rem`);
     }
     testData(){
