@@ -1,5 +1,5 @@
-import { $ } from './DOMutil.js';
-import { ajax } from './ajaxpromise.js';
+import { $ } from './DOMutil.js.js';
+import { ajax } from './ajaxpromise.js.js';
 class GoodList {
     constructor() {
         this.wrap = $('#wrap');

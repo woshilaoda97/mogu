@@ -1,4 +1,4 @@
-import {stypeof} from "./util.js"
+import {stypeof} from "./util.js.js"
 //ele构造函数
 const Ele = function(dom){
     this.ele = dom;
