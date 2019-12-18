@@ -7,6 +7,7 @@
     <meta name="keywords" content="买衣服，先逛蘑菇街">
     <meta name="description"
         content="蘑菇街，是中国领先的时尚目的地。公司通过形式多样的时尚内容，种类丰富的时尚商品，以及结合红人直播、买手选款+智能推荐的售卖方式，让人们在分享和发现流行趋势的同时，尽情享受优质的购物体验。2011年，蘑菇街正式上线，2016年1月与美丽说战略融合，公司旗下包括：蘑菇街、美丽说、uni等产品与服务。">
+
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/index.css">
     <link rel="icon" href="https://s10.mogucdn.com/mlcdn/c45406/170401_16fj5k6k4174bfd21d03a4gf6a7hg_48x48.png"
@@ -32,75 +33,83 @@
                 </nav>
             </div>
         </div>
-
-        <div class="header-wrap">
-            <a href="javascript:;" class="logo" title="蘑菇街首页" style="background-image: none;">
-                <img src="https://s10.mogucdn.com/mlcdn/c45406/190102_088f4i166l4gkl08k297h5kk8690i_260x200.png" alt="">
-            </a>
-            <div class="header-category">
-                <i></i>目录
-            </div>
-
-            <div class="search-nav-content">
-                <!-- 搜索框 -->
-                <div class="normal-search-content">
-                    <div class="top-nav-search" id="top-nav-search">
-                        <form class="top-nav-form" id="top_nav_form">
-                            <input type="text" id="top_nav_text" class="ts_txt" placeholder="毛衣" name="q" value=""
-                                autocomplete="off">
-                            <input id="top_nav_btn" type="submit" value="" class="ts_btn">
-                        </form>
-                    </div>
+        <div class="header-outer">
+            <div class="header-wrap">
+                <a href="javascript:;" class="logo" title="蘑菇街首页" style="background-image: none;">
+                    <img src="https://s10.mogucdn.com/mlcdn/c45406/190102_088f4i166l4gkl08k297h5kk8690i_260x200.png"
+                        alt="">
+                </a>
+                <div class="header-category">
+                    <i></i>目录
                 </div>
 
-                <!-- 导航信息 -->
-                <div class="site-top-nav">
-                    <ul>
-                        <li class="header-message">
-                            <a href="javascript:;" class="header-message-icon"></a>
-                            消息
-                        </li>
-                        <li class="header-fav">
-                            <a href="javascript:;" class="header-message-icon"></a>
-                            收藏
-                        </li>
-                        <li class="header-cart">
-                            <a href="javascript:;" class="header-message-icon"></a>
-                            购物车
-                        </li>
-                        <li class="header-download">
-                            <a href="javascript:;" class="header-message-icon"></a>
-                            下载App
-                            <div>
-                                <img
-                                    src="https://s10.mogucdn.com/mlcdn/c45406/190521_2ec360a8f76giijel4e95g9h3i3ci_199x217.png">
-                            </div>
-                        </li>
-                        <li class="header-user-info">
-                            <a href="javascript:;">
-                                <img src="https://s10.mogucdn.com/mlcdn/c45406/181016_143l3ehl4ebad6c2326gjk6d4h41g_48x48.png"
-                                    class="header-login-icon" alt="">
-                                登录
-                            </a>
-                        </li>
-                    </ul>
+                <div class="search-nav-content">
+                    <!-- 搜索框 -->
+                    <div class="normal-search-content">
+                        <div class="top-nav-search" id="top-nav-search">
+                            <form class="top-nav-form" id="top_nav_form">
+                                <input type="text" id="top_nav_text" class="ts_txt" placeholder="毛衣" name="q" value=""
+                                    autocomplete="off">
+                                <input id="top_nav_btn" value="" class="ts_btn">
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- 导航信息 -->
+                    <div class="site-top-nav">
+                        <ul>
+                            <li class="header-message">
+                                <a href="javascript:;" class="header-message-icon"></a>
+                                消息
+                            </li>
+                            <li class="header-fav">
+                                <a href="javascript:;" class="header-message-icon"></a>
+                                收藏
+                            </li>
+                            <li class="header-cart">
+                                <a href="javascript:;" class="header-message-icon"></a>
+                                购物车
+                            </li>
+                            <li class="header-download">
+                                <a href="javascript:;" class="header-message-icon"></a>
+                                下载App
+                                <div>
+                                    <img
+                                        src="https://s10.mogucdn.com/mlcdn/c45406/190521_2ec360a8f76giijel4e95g9h3i3ci_199x217.png">
+                                </div>
+                            </li>
+                            <li class="header-user-info">
+                                <a href="./loginRigstry.html">
+                                    <img src="https://s10.mogucdn.com/mlcdn/c45406/181016_143l3ehl4ebad6c2326gjk6d4h41g_48x48.png"
+                                        class="header-login-icon" alt="">
+                                    登录
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
+
     </header>
 
     <main id="outer-wrap" class="container-fluid">
         <div id="wrap" class="clear">
             <!-- 小图 -->
             <div class="li">
-                <a href="javascript:;">
-                    <img src="https://s11.mogucdn.com/mlcdn/c45406/191118_771g78l1ic94a581id4d73lj9cdc9_3999x5999.jpg_468x468.jpg" alt="">
+                <a class="opic" href="javascript:;" data-wrap-a>
+                    <img src="" alt="" data-main-img>
+                    <p class="price" data-price-p></p>
+                    <p class="name">
+                        <span data-name-p></span>
+                    </p>
                 </a>
             </div>
             <!-- 大图 -->
             <div class="bli">
                 <div class="open-img-wrap">
-                    <img src="https://s10.mogucdn.com/mlcdn/c45406/191213_6ec5gabl285b6jkb7ia3flic8eb5h_710x750.jpg" alt="">
+                    <img src="https://s10.mogucdn.com/mlcdn/c45406/191213_6ec5gabl285b6jkb7ia3flic8eb5h_710x750.jpg"
+                        alt="">
                 </div>
                 <!-- 菜单 -->
                 <div class="cate-word-wrap">

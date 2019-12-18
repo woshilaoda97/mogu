@@ -1,5 +1,5 @@
-import {ajax} from './ajaxpromise.js'
-import {bufferMove} from './move.js';
+import {ajax} from './util.js'
+import {bufferMove} from './util.js';
 !function(){
     class Detail{
         constructor(){

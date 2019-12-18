@@ -8,7 +8,7 @@
         clear: both;
     }
 }
-@mixin ellipse($height:100px,$width:500px,$row:1){
+@mixin ellipse($width:500px,$height:100px,$row:1){
     width: $width;
     height: $height;
     display: -webkit-box;
