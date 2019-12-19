@@ -3,91 +3,80 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="copyright" content="mogujie.com">
-    <meta name="apple-itunes-app" content="app-id=452176796, app-argument=">
     <link rel="icon" href="https://s10.mogucdn.com/mlcdn/c45406/170401_16fj5k6k4174bfd21d03a4gf6a7hg_48x48.png"
         type="image/x-icon">
     <title>登录</title>
     <meta name="description"
         content="美丽联合集团是女性时尚媒体和时尚消费平台，通过整合现在已有的资源，包括电商、社区、红人、内容等等，来服务于不同的女性用户。蘑菇街是集团旗下定位于年轻女性用户的时尚媒体与时尚消费类App，核心用户人群为 18-23 岁年轻女性用户。2015年，蘑菇街以当红明星李易峰和“我的买手街”的品牌定位，成功树立了自身以买手精选为核心理念的差异化品牌形象。2016年，迪丽热巴以首席体验官的身份代表广大用户加入蘑菇街，从而更好地为年轻女性用户提供从美妆、穿搭分享到时尚购物的一站式消费体验。">
     <link rel="stylesheet" href="./css/lr.css">
+    <script src="./script/loginRegistry.js" type="module" async="true"></script>
 </head>
 
 <body class="media_screen_1200">
-    <div id="body_wrap">
-        <div class="login_wrap">
-            <!-- header -->
-            <div class="logo_wrap">
-                <div class="logo">
-                    <a title="蘑菇街" href="//www.mogu.com" class="mainlogo logo_mgj_img">
-                        <img
-                            src="https://s10.mogucdn.com/mlcdn/c45406/190102_088f4i166l4gkl08k297h5kk8690i_260x200.png">
-                    </a>
-                    <!-- 登录页绑定手机提示 -->
-                    <span class="login-logo-tip">依《网络安全法》相关要求，即日起蘑菇街会员登陆需绑定手机。为保障您的账户安全及正常使用，如您尚未绑定，请尽快完成绑定，感谢您的理解和支持!</span>
-                </div>
+    <div class="login_wrap">
+        <!-- header -->
+        <div class="logo_wrap">
+            <div class="logo">
+                <a title="蘑菇街" href="javascript:;" class="mainlogo logo_mgj_img">
+                    <img src="https://s10.mogucdn.com/mlcdn/c45406/190102_088f4i166l4gkl08k297h5kk8690i_260x200.png">
+                </a>
+                <!-- 登录页绑定手机提示 -->
+                <span
+                    class="login-logo-tip">依《网络安全法》相关要求，即日起蘑菇街会员登陆需绑定手机。为保障您的账户安全及正常使用，如您尚未绑定，请尽快完成绑定，感谢您的理解和支持!</span>
             </div>
-            <!-- main -->
-            <div class="content clearfix" id="backgroundContainer"
-                style="background: url(&quot;https://s17.mogucdn.com/p2/170105/upload_541i9di2b3icf9j13f24e0bg7b1i6_1920x600.png&quot;) center center no-repeat;">
-                <div class="lg_banner"> <a id="backgroundLink" class="banner1" href=""></a> </div>
-                <!-- 登录注册tab -->
-                <div class="lg_left ui-option-main-box" id="lg_content">
-                    <!-- 右上角按钮 -->
-                    <div class="toggle-qrcode"></div>
-                    <!-- tab切换按钮 -->
-                    <div class="login_mod_tab">
-                        <div class="fl mod">
-                            <a class="lo_mod tab_on" href="javascript:;">普通登录</a>
-                        </div>
-                        <div class="fl mod nopassword">
-                            <a class="eb_mod" href="javascript:;" title="手机免密码登入">手机无密码登录</a>
-                        </div>
-                    </div>
-                    <!-- tab切换主体 -->
-                    <div id="signform" class="formbox">
-                        <p class="error_tip" style="display: none;">请输入用户名/邮箱/手机号</p>
-                        <div class="lg_form">
-                            <form method="post">
-                                <!-- 正常登录 start -->
-                                <div class="mod_box lo_mod_box">
-                                    <div class="ui-sign-item ui-name-item lg_item lg_name"> <input type="text"
-                                            maxlength="32" class="ui-input pwd_text" data-type="username" name="uname"
-                                            placeholder="用户名/邮箱/手机号" style="border-color:#CFCFCF;">
-                                    </div>
-                                    <div class="ui-sign-item ui-sign-common-item lg_item lg_pass"> <input
-                                            type="password" maxlength="32" class="ui-input pwd_text"
-                                            data-type="loginpassword" name="pass" value="" placeholder="密码"
-                                            style="border-color:#CFCFCF;"> </div>
-                                </div> <!-- 正常登录 end -->
-                                <!-- 无密码 start -->
-                                <div class="mod_box eb_mod_box">
-                                    <div class="ui-sign-item ui-name-item clearfix mb"> 
-                                        <select class="country_select" style="display:none"></select>
-                                        <input type="text" class="ui-input pwd_text" name="tele" data-type="mobile"
-                                            placeholder="手机号码" style="border-color:#CFCFCF;">
-                                    </div>
-                                </div>
+        </div>
+        <!-- main -->
+        <div class="content clearfix" id="backgroundContainer"
+            style="background: url(&quot;https://s17.mogucdn.com/p2/170105/upload_541i9di2b3icf9j13f24e0bg7b1i6_1920x600.png&quot;) center center no-repeat;">
+            <div class="lg_banner"> <a id="backgroundLink" class="banner1"></a> </div>
+            <!-- 登录注册tab -->
+            <div class="lg_left ui-option-main-box" id="lg_content">
+                <!-- tab切换按钮 -->
+                <div class="login_mod_tab">
+                        <a class="fl eb_mod mod tab_on" style="margin-left: 46px;" href="javascript:;">普通登录</a>
+                        <a class="fl eb_mod mod" href="javascript:;" title="手机免密码登入">注册</a>
+                </div>
+                <!-- tab切换主体 -->
+                <div id="signform" class="formbox">
+                    <!-- 登陆 -->
+                    <div class="lg_form">
+                        <form method="post" action="">
+                            <fieldset class="mod_box">
+                                <p class="error_tip" style="display: none;">请输入用户名/邮箱/手机号</p>
 
-                                <div class="lg_login clearfix">
+                                <p class="ui-sign-item">
+                                    <input type="text" class="pwd_text" name="uname" placeholder="用户名/邮箱/手机号" autocomplete='user'>
+                                </p>
+                                <p class="ui-sign-item">
+                                    <input type="password" class="pwd_text" name="pass" placeholder="密码" autocomplete='pass'>
+                                </p>
+                                <div class="lg_login">
                                     <input type="submit" value="登录" class="sub">
                                 </div>
-                            </form>
-                            <!-- qq微信登录按钮 -->
-                            <div class="ot_login">
-                                <div class="ot_btn clearfix">
-                                    <a class="ui-ot-btn mr-42 ot_btn_qq" href="javascript:;">
-                                        <img
-                                            src="https://s10.mogucdn.com/p2/170104/upload_5763lkilh8f7abid345gbhh167d79_19x19.png">QQ登录
-                                    </a>
-                                    <a class="ui-ot-btn mr-42" href="javascript:;" data-type="weixin">
-                                        <img
-                                            src="https://s10.mogucdn.com/p2/170104/upload_8d4dd486c18961b55lf0hbe5ebf7l_18x19.png">微信登录
-                                    </a>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <!-- 注册 -->
+                    <div class="lg_form" style="display: none;">
+                        <form method="post" action="">
+                            <fieldset class="mod_box">
+                                <p class="ui-sign-item">
+                                    <input type="text" class="pwd_text" name="uname" placeholder="用户名/邮箱/手机号" autocomplete='user'>
+                                </p>
+                                <p class="ui-sign-item">
+                                    <input type="password" class="pwd_text" name="pass" placeholder="密码" autocomplete='user'>
+                                </p>
+                                <p class="ui-sign-item">
+                                    <input type="password" class="pwd_text" name="pass" placeholder="重复密码" autocomplete='user'>
+                                </p>
+                                <p class="ui-sign-item">
+                                    <input type="password" class="pwd_text" name="pass" placeholder="邮箱"" autocomplete='user'>
+                                </p>
+                                <div class="lg_login">
+                                    <input type="submit" value="登录" class="sub">
                                 </div>
-                            </div>
-                            <div class="lg_reg"> <a class="findpwd" href="javascript:;">忘记密码</a> </div>
-                        </div>
+                            </fieldset>
+                        </form>
                     </div>
                 </div>
             </div>

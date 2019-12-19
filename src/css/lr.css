@@ -3426,3 +3426,11 @@ body {
 .mgj_copyright {
   min-height: 160px;
 }
+fieldset{
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.mod_box p{
+  margin-bottom: .8rem;
+}

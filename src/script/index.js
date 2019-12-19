@@ -1,6 +1,6 @@
 import { $ } from './DOMutil.js';
 import { ajax } from './util.js';
-import StackHeader from './effect.js';
+import {StackHeader} from './effect.js';
 class GoodList {
     constructor() {
         this.$wrap = $('#wrap');
@@ -33,24 +33,23 @@ class GoodList {
     }
     //瀑布流渲染商品
     picrender(data) {
-        $('.li').get().innerHTML = '';
+        $('.li').get(0).innerHTML = '';
         for (let v of data) {
-            $('.li', true)
-                .get(this.minHeight())
+            $('.li')
+                .eq(this.minHeight())
                 .html(this.$picMode.clone({
                     'data-wrap-a': { style: `height:${v.mpicheight}rem`,sid:v.gid},
                     'data-main-img': { src: v.picurls.split(';')[0] },
                     'data-name-p': { text: v.name },
                     'data-price-p': { text: '￥' + v.price }
-                }, 'text'), true)
+                }, 'text'),true)
         }
     }
     //每次获取新的列；返回出高度最短列的索引
     minHeight() {
         let minindex = 0;
-        let minvalue = $('.li', true).get(0).height();
-        $('.li', true).each((val, index) => {
-            // console.log(val.height(), index);
+        let minvalue = $('.li').eq(0).height();
+        $('.li').each((val, index) => {
             if (minvalue > val.height()) {
                 minindex = index;
                 minvalue = val.height();

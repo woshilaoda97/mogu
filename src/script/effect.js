@@ -1,5 +1,6 @@
 import { $ } from './DOMutil.js';
 import { bufferMove } from './util.js';
+//粘性导航栏($header为Ele对象)
 class StackHeader {
     constructor($header) {
         this.$header = $header;
@@ -9,7 +10,6 @@ class StackHeader {
     }
     init() {
         let _this = this;
-        console.log(this.maxWidth, this.bWidth);
         window.onscroll = function () {
             _this.posFixed();
         }
@@ -47,4 +47,18 @@ class StackHeader {
         }
     }
 }
-export default StackHeader;
+//tab切换
+class tabSwitch{
+    constructor($btns,$contents){
+        this.$btns = $btns;
+        this.$contents = $contents;
+    }
+    init(){
+        let _this = this;
+        this.$btns.on('click',function(){
+            this.addClass('tab_on').siblings().removeClass('tab_on');
+            _this.$contents.eq(this.index()).show().siblings().hide();
+        })
+    }
+}
+export {StackHeader ,tabSwitch};

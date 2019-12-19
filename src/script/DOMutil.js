@@ -1,165 +1,192 @@
 import { stypeof } from "./util.js"
-//ele构造函数
-const Ele = function (dom) {
-    this.ele = dom;
+//Ele类
+export const Ele = function (selector) {
+    return new Ele.fn.init(selector);
 }
-//取元素//转化为Ele元素对象//[object HTML...Element]
-export const $ = function (selector, isAll) {
-    let dom = null
-    //如果是字符串
-    if (stypeof(selector) === 'string') {
-        if (!isAll) {
-            dom = document.querySelector(selector);
-            return new Ele(dom);
-        } else {//如果为多元素/this.ele为数组每一项都为ele对象
-            dom = document.querySelectorAll(selector);
-            let arr = [...dom].map((v) => {
-                return new Ele(v);
-            })
-            return new Ele(arr);
+export const $ = Ele;
+//构造函数init绑定在Ele类的原型下
+Ele.fn = Ele.prototype = {
+    //取元素//转化为Ele元素对象//
+    init: function (selector) {
+        if (stypeof(selector) === 'string') {
+            this.ele = [...document.querySelectorAll(selector)];
+            this.length = this.ele.length;
+            this.selector = selector;
+            return this;
+        } else if (selector.nodeType) {//如果是元素节点则转化为Ele对象
+            //如果是元素对象则转化
+            this.ele = [selector];
+            this.length = 1;
+            return this;
+        } else if (stypeof(selector) === 'array' || stypeof(selector) === 'nodelist') {
+            this.ele = [...selector];
+            this.length = this.ele.length;
+            return this
+        } else {
+            throw new Error("类型错误");
         }
-    } else if (/\[object HTML/.test(Object.prototype.toString.call(selector))) {
-        //如果是元素对象则转化
-        return new Ele(selector);
-    } else {
-        throw new Error("类型错误");
     }
 }
-//清空内嵌css
-Ele.prototype.clearStyle = function(){
-    this.ele.style.cssText='';
-    return this;
-}  
-//设置/获取css
-Ele.prototype.css = function (text) {
-    if (stypeof(text) === 'object') {//如果是对象则添加css
-        let str = '';
-        for(let v in text){
-            str+=`${v}:${text[v]};`
-        }
-        this.ele.style.cssText += str;
+//将构造函数的原型指向Ele类的原型(实例._proto-->Ele.prototype.init.prototype-->Ele.prototype)
+Ele.fn.init.prototype = Ele.prototype;
+/***********************************************************核心************************************************************/
+//遍历
+Ele.fn.each = function (callback) {
+    if (stypeof(this.ele) === 'array') {
+        this.ele.map(v => $(v)).forEach(callback);
         return this;
-    } else if (stypeof(text) === 'string') {//如果是字符串则返回字符串属性的属性值
-        if(getComputedStyle){
-            return getComputedStyle(this.ele)[text];
-        }else{
-            return this.ele.currentStyle[text];
-        }
-    } else if (!text) {//如果为空返回所有css
-        return getComputedStyle ? getComputedStyle(this.ele) : this.ele.currentStyle;
     } else {
-        throw new Error("类型错误");
+        throw new Error("ele不为数组");
     }
 }
+//将ele对象转化为原始元素对象/返回第num个对象
+Ele.fn.get = function (num) {
+    if (num > 0) {
+        if (num < this.ele.length) {
+            return this.ele[num];
+        } else {
+            return this.ele[this.ele.length];
+        }
+    } else {
+        return this.ele[0];
+    }
+}
+//返回索引
+Ele.fn.index = function (n) {
+    n = n || 0;
+    let p = this.ele[n].parentNode
+    return [...p.children].indexOf(this.ele[0]);
+}
+/***********************************************************属性************************************************************/
 //设置/获取innerHTML(第二个参数为是否添加)
-Ele.prototype.html = function (text, isAdd) {
+Ele.fn.html = function (text, isAdd) {
     if (stypeof(text) === 'string' || stypeof(text) === 'number') {
         if (!isAdd) {
-            this.ele.innerHTML = text;
+            this.ele[0].innerHTML = text;
         } else {
-            this.ele.innerHTML += text;
+            this.ele[0].innerHTML += text;
         }
         return this;
     } else if (!text) {
-        return this.ele.innerHTML;
+        return this.ele[0].innerHTML;
+    } else {
+        throw new Error("类型错误");
+    }
+}
+//添加className//this.ele.getAttribute('class')
+Ele.fn.addClass = function (classname) {
+    for (let v of this.ele) {//不存在则添加
+        let attr = v.getAttribute('class');
+        if (attr) {
+            if (!new RegExp(`\\s${classname}$|\\s${classname}\\s`).test(attr)) {
+                v.setAttribute('class', attr + ' ' + classname);
+            }
+        } else {
+            this.ele[0].setAttribute('class', classname);
+        }
+    }
+    return this;
+}
+//删除className
+Ele.fn.removeClass = function (classname) {
+
+    if (classname) {//如果有参数则删除参数类
+        for (let v of this.ele) {
+            let attr = v.getAttribute('class');
+            v.setAttribute('class', attr.replace(new RegExp(`\\s${classname}`), ''));
+        }
+    } else {//否则清空
+        this.ele[0].setAttribute('class', '');
+    }
+    return this;
+}
+//更改/添加/读取属性
+Ele.fn.attr = function (key, value) {
+    if (!value) {
+        this.ele[0].getAttribute(key);
+    } else {
+        this.ele[0].setAttribute(key, value);
+        return this;
+    }
+}
+/***********************************************************css************************************************************/
+//清空内嵌css
+Ele.fn.clearStyle = function () {
+    this.ele[0].style.cssText = '';
+    return this;
+}
+//设置/获取css
+Ele.fn.css = function (text) {
+    if (stypeof(text) === 'object') {//如果是对象则添加css
+        let str = '';
+        for (let v in text) {
+            str += `${v}:${text[v]};`
+        }
+        this.ele[0].style.cssText += str;
+        return this;
+    } else if (stypeof(text) === 'string') {//如果是字符串则返回字符串属性的属性值
+        if (getComputedStyle) {
+            return getComputedStyle(this.ele[0])[text];
+        } else {
+            return this.ele[0].currentStyle[text];
+        }
+    } else if (!text) {//如果为空返回所有css
+        return getComputedStyle ? getComputedStyle(this.ele[0]) : this.ele[0].currentStyle;
     } else {
         throw new Error("类型错误");
     }
 }
 //获取元素宽高
-Ele.prototype.width = function () {
-    if (stypeof(this.ele) !== 'array') {
-        return this.ele.offsetWidth;
-    } else {
-        throw new Error("对象不能为元素数组");
-    }
+Ele.fn.width = function (index) {
+    index = index || 0;
+    return this.ele[index].offsetWidth;
 }
-Ele.prototype.height = function () {
-    if (stypeof(this.ele) !== 'array') {
-        return this.ele.offsetHeight;
-    } else {
-        throw new Error("对象不能为元素数组");
-    }
+Ele.fn.height = function (index) {
+    index = index || 0;
+    return this.ele[index].offsetHeight;
 }
 //获取元素top/left
-Ele.prototype.left = function () {
-    if (stypeof(this.ele) !== 'array') {
-        return this.ele.offsetLeft;
-    } else {
-        throw new Error("对象不能为元素数组");
-    }
+Ele.fn.left = function (index) {
+    index = index || 0;
+    return this.ele[index].offsetLeft;
 }
-Ele.prototype.top = function () {
-    if (stypeof(this.ele) !== 'array') {
-        return this.ele.offsetTop;
-    } else {
-        throw new Error("对象不能为元素数组");
-    }
+Ele.fn.top = function (index) {
+    index = index || 0;
+    return this.ele[index].offsetTop;
 }
-//添加/删除className//this.ele.getAttribute('class')
-Ele.prototype.addClass = function (classname) {
-    let attr = this.ele.getAttribute('class');
-    if (attr) {
-        //不存在则添加
-        if (!new RegExp(`\\s${classname}$|\\s${classname}\\s`).test(attr)) {
-            this.ele.setAttribute('class', attr + ' ' + classname);
-        }
-    } else {
-        this.ele.setAttribute('class', classname);
-    }
+/***********************************************************筛选************************************************************/
+//获取子节点
+Ele.fn.children = function () {
+    this.ele = [...this.ele[0].children];
+    this.length = this.ele.length
     return this;
 }
-Ele.prototype.removeClass = function (classname) {
-    let attr = this.ele.getAttribute('class');
-    if (classname) {//如果有参数则删除参数类
-        this.ele.setAttribute('class', attr.replace(new RegExp(`\\s${classname}`), ''));
-    } else {//否则清空
-        this.ele.setAttribute('class', '');
-    }
-    return this;
+//eq
+Ele.fn.eq = function (num) {
+    return $(this.ele[num]);
 }
-//更改/添加/读取属性
-Ele.prototype.attr = function (key,value){
-    if(!value){
-        this.ele.getAttribute(key);
-    }else{
-        this.ele.setAttribute(key,value);
-        return this;
-    }
-}
-//将ele对象转化为原始元素对象/返回第num个对象
-Ele.prototype.get = function (num) {
-    if (this.ele.length > 0) {
-        if (num < this.ele.length) {
-            return this.ele[num]
-        } else {
-            return this.ele[this.ele.length]
+//获取其他兄弟节点
+Ele.fn.siblings = function () {
+    let prev = this.ele[0];
+    let childs = this.ele[0].parentNode.children;
+    let arr = [];
+    for (let v of childs) {
+        if (v !== prev) {
+            arr.push(v);
         }
-    } else {
-        return this.ele;
     }
+    // this.ele = arr;
+    // this.length = arr.length;
+    return $(arr);
 }
-//遍历
-Ele.prototype.each = function (callback) {
-    if (stypeof(this.ele) === 'array') {
-        this.ele.forEach(callback);
-        return this;
-    } else {
-        throw new Error("对象不为nodelist");
-    }
-}
+/*********************************************************文档处理************************************************************/
 //插入元素
-Ele.prototype.append = function($obj){
-    this.ele.appendChild($obj.get());
+Ele.fn.append = function ($obj) {
+    this.ele[0].appendChild($obj.get());
     return this;
 }
-// Ele.prototype.eq = function (num) {
-//     if (this.ele.length > 1) {
-//         return
-//     }
-// }
 //DOM克隆
-Ele.prototype.clone = function (data, dataType) {/*clone:
+Ele.fn.clone = function (data, dataType) {/*clone:
     data为要修改的属性如:
         'data-a-img':{href:"12314142312.jpg"},
         'data-img':{src:"https://gsfb031beeb6.jpg"},
@@ -168,7 +195,7 @@ Ele.prototype.clone = function (data, dataType) {/*clone:
     (data-a-img为要修改属性的自定义标签,!自定义属性不可以和元素内任何内容重名,用来寻找元素)
     (值为要修改元素的所有属性);
     dataType为返回数据类型，text或者元素;*/
-    let cloneElement = this.ele.cloneNode(true);
+    let cloneElement = this.ele[0].cloneNode(true);
     let outerhtml = cloneElement.outerHTML;
     outerhtml = outerhtml.replace('none', 'block');
     for (let e in data) {//遍历要修改的标签
@@ -196,11 +223,33 @@ Ele.prototype.clone = function (data, dataType) {/*clone:
         return outerhtml;
     }
 }
+/***********************************************************事件************************************************************/
 //事件绑定
-Ele.prototype.on = function (eventType, callback) {
-    if (this.ele.addEventListener) {
-        this.ele.addEventListener(eventType, callback, true);
+Ele.fn.on = function (eventType, callback) {
+    if (this.ele[0].addEventListener) {
+        for (let v of this.ele) {//将回调函数中的this指向绑定的Ele对象
+            v.addEventListener(eventType, callback.bind($(v)), true);
+        }
     } else {
-        this.ele.attachEvent('on' + eventType, callback);
+        for (let v of this.ele) {
+            v.attachEvent('on' + eventType, callback.bind($(v)));
+        }
     }
+    return this;
 }
+/***********************************************************效果************************************************************/
+//显示元素
+Ele.fn.show = function () {
+    this.ele.forEach(v => {
+        $(v).css({ display: 'block' });
+    })
+    return this;
+}
+//隐藏元素
+Ele.fn.hide = function () {
+    this.ele.forEach(v => {
+        $(v).css({ display: 'none' });
+    })
+    return this;
+}
+//animation动画效果
