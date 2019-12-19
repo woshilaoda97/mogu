@@ -8,8 +8,8 @@
     <title>Document</title>
     <link rel="icon" href="https://s10.mogucdn.com/mlcdn/c45406/170401_16fj5k6k4174bfd21d03a4gf6a7hg_48x48.png"
         type="image/x-icon">
-    <link rel="stylesheet"
-        href="./css/details.css">
+    <link rel="stylesheet" href="./css/details.css">
+    <script src="./script/details.js" type="module" async="true"></script>
 </head>
 
 <body class="media_screen_1200">
@@ -65,7 +65,7 @@
                                 src="https://s10.mogucdn.com/mlcdn/c45406/190221_5i6j6d3khieh48123j13age0fh9eh_8x8.png">
                         </div><!-- 我的 -->
                         <div class="header-user-info fr"><a rel="nofollow" class="J_header-login header-login"
-                                href="javascript:;"><img
+                                href="./loginRigstry.html"><img
                                     src="https://s10.mogucdn.com/mlcdn/c45406/181016_143l3ehl4ebad6c2326gjk6d4h41g_48x48.png"
                                     class="header-login-icon" alt="">登录</a></div>
                     </div>
@@ -84,12 +84,12 @@
         <div class="top-nav">
             <div class="nav-mask"></div>
             <ul>
-                <li><a href="https://shop.mogu.com/1172w0dy">首页</a></li>
-                <li class="J-top-nav-title"><a href="//shop.mogu.com/1172w0dy/index/total">全部商品</a></li>
+                <li><a href="./index.html">首页</a></li>
+                <li class="J-top-nav-title"><a href="javascript:;">全部商品</a></li>
             </ul>
         </div>
     </div>
-<!-------------------------------------------------------------- ## 渲染主体 -------------------------------------------------------------->
+    <!-- 渲染主体 -->
     <div id="body_wrap">
         <div class="shop-detail">
             <div class="detail-primary clearfix">
@@ -99,7 +99,7 @@
                             <div class="info-box">
                                 <!-- ## 预售商品标题 -->
                                 <h1 class="goods-title">
-                                    <span itemprop="name" class="title small">2019秋冬季长款加绒加厚背带裙两件套修身连衣裙显瘦时尚套装裙女</span>
+                                    <span itemprop="name" class="title bigsize" data-name-span></span>
                                 </h1>
                                 <!--## 促销活动、价格、优惠-->
                                 <div class="goods-prowrap goods-main">
@@ -117,22 +117,22 @@
                                                 <dl class="clearfix property-box">
                                                     <dt class="property-type property-type-origin">价格：</dt>
                                                     <dd class="property-cont property-cont-origin">
-                                                        <span id="J_OriginPrice" class="price">¥62.48</span>
+                                                        <span id="J_OriginPrice" class="price">¥xx.xx</span>
                                                     </dd>
                                                 </dl>
                                                 <dl class="clearfix property-box J_NowPrice_Wrap">
                                                     <dt class="property-type property-type-now">促销价：</dt>
                                                     <dd class="property-cont property-cont-now fl">
-                                                        <span id="J_NowPrice" class="price">¥49.98</span>
+                                                        <span id="J_NowPrice" class="price" data-price-span></span>
 
                                                     </dd>
                                                     <!--## 商品评价、销量样式-->
                                                     <dd class="property-extra fr">
                                                         <span class="mr10">评价：
-                                                            <span class="num">12</span>
+                                                            <span class="num">xxx</span>
                                                         </span>
                                                         <span>累计销量：
-                                                            <span class="num J_SaleNum">55</span>
+                                                            <span class="num J_SaleNum">xxx</span>
                                                         </span>
                                                     </dd>
                                                 </dl>
@@ -143,7 +143,7 @@
                                 <!--## 购买-->
                                 <div class="goods-prowrap goods-sku" id="J_GoodsSku">
                                     <!--### 商品信息-->
-                                    <div class="content">
+                                    <div class="content" style="height: 400px;">
                                         <div class="pannel-title">
                                             <span class="choose-goods-info">选择商品信息</span>
                                             <b class="J_PannelClose pannel-close"></b>
@@ -161,7 +161,7 @@
                                                         <span class="num-add "></span>
                                                     </div>
                                                     <!--### 库存总数-->
-                                                    <div class="J_GoodsStock goods-stock fl">库存2件</div>
+                                                    <div class="J_GoodsStock goods-stock fl">库存xx件</div>
                                                 </dd>
                                             </dl>
                                         </div>
@@ -171,12 +171,12 @@
                                     <div class="goods-buy clearfix">
 
                                         <!--## 立即购买-->
-                                        <a href="javascript:;" id="J_BuyNow" class="fl mr10 buy-btn buy-now">立刻购买</a>
+                                        <a href="javascript:;" id="J_BuyNow" class="fl mr10 buy-btn buy-cart">立刻购买</a>
                                         <!--## 搭配购逻辑，如果有下面这行标签，才会显示搭配购信息-->
                                         <input type="hidden" value="nodapei" id="dapeiShow">
 
                                         <!--## 加入购物车-->
-                                        <a href="javascript:;" id="J_BuyCart" class="fl mr10 buy-cart buy-btn">加入购物车</a>
+                                        <a href="javascript:;" id="J_BuyCart" class="fl mr10 buy-now buy-btn">加入购物车</a>
                                     </div>
                                 </div>
                             </div>
@@ -185,16 +185,13 @@
                         <div class="fl goods-topimg" id="J_GoodsImg">
                             <!-- 大图区域 -->
                             <div class="big-img">
-                                <img id="J_BigImg"
-                                    src="https://s5.mogucdn.com/mlcdn/55cf19/191031_5d5655dh6e66i3fc33ldbj12ik5hc_850x850.jpg_468x468.jpg"
-                                    data-main="https://s5.mogucdn.com/mlcdn/55cf19/191031_5d5655dh6e66i3fc33ldbj12ik5hc_850x850.jpg"
-                                    alt="2019秋冬季长款加绒加厚背带裙两件套修身连衣裙显瘦时尚套装裙女" width="400">
+                                <img alt="" data-bpic-img width="">
                             </div>
                             <!-- 小图区域 -->
                             <div id="J_SmallImgs" class="small-img" style="display: none;">
                                 <div class="box">
                                     <div class="list">
-                                        <ul class="clearfix" style="text-align: center;"></ul>
+                                        <ul id='spics' class="clearfix" style="text-align: center;" data-spics-ul></ul>
                                     </div>
                                 </div>
                                 <a class="left-btn arrow-btn" href="javascript:;"></a>
@@ -203,6 +200,164 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer -->
+    <div class="foot J_siteFooter"
+        style="background-image: url(&quot;https://s10.mogucdn.com/mlcdn/c45406/181031_40flk9d5hkkjf44246248clfl77f1_1440x500.jpg&quot;);">
+        <div class="mgj_copyright">
+            <div class="mgj_footer_icon"><a rel="nofollow" target="_blank"
+                    href="javascript:;"><img
+                        src="https://s10.mogucdn.com/mlcdn/c45406/181112_4a8ch8fac2i12ib313hif4da35ed3_280x76.png"></a>
+            </div>
+            <div class="mgj_footer_helper clearfix">
+                <div class="mgj_footer_helper_mod">
+                    <div class="mgj_footer_helper_mod_container">
+                        <div class="mgj_footer_helper_title">新手帮助<p class="mgj_footer_helper_title_border"></p>
+                        </div>
+                        <ul>
+                            <li class="mgj_footer_helper_item"><a rel="nofollow" target="_blank"
+                                    href="javascript:;">常见问题</a>
+                            </li>
+                            <li class="mgj_footer_helper_item"><a rel="nofollow" target="_blank"
+                                    href="javascript:;">自助服务</a>
+                            </li>
+                            <li class="mgj_footer_helper_item"><a rel="nofollow" target="_blank"
+                                    href="javascript:;">联系客服</a>
+                            </li>
+                            <li class="mgj_footer_helper_item"><a rel="nofollow" target="_blank"
+                                    href="javascript:;">意见反馈</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mgj_footer_helper_mod">
+                    <div class="mgj_footer_helper_mod_container">
+                        <div class="mgj_footer_helper_title">权益保障<p class="mgj_footer_helper_title_border"></p>
+                        </div>
+                        <ul>
+                            <li class="mgj_footer_helper_item">
+                                <div>全国包邮</div>
+                            </li>
+                            <li class="mgj_footer_helper_item">
+                                <div>7天无理由退货</div>
+                            </li>
+                            <li class="mgj_footer_helper_item">
+                                <div>退货运费补贴</div>
+                            </li>
+                            <li class="mgj_footer_helper_item">
+                                <div>限时发货</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mgj_footer_helper_mod">
+                    <div class="mgj_footer_helper_mod_container">
+                        <div class="mgj_footer_helper_title">支付方式<p class="mgj_footer_helper_title_border"></p>
+                        </div>
+                        <ul>
+                            <li class="mgj_footer_helper_item">
+                                <div>微信支付</div>
+                            </li>
+                            <li class="mgj_footer_helper_item">
+                                <div>支付宝</div>
+                            </li>
+                            <li class="mgj_footer_helper_item">
+                                <div>白付美支付</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mgj_footer_helper_mod">
+                    <div class="mgj_footer_helper_mod_container">
+                        <div class="mgj_footer_helper_title">移动客户端下载<p class="mgj_footer_helper_title_border"></p>
+                        </div>
+                        <ul>
+                            <li class="mgj_footer_helper_item mgj_footer_helper_item_last">
+                                <div>蘑菇街</div><img class="mgj_footer_helper_quoer_code"
+                                    src="https://s10.mogucdn.com/mlcdn/c45406/190221_3l1eje914h3h6ch88ce2l6eh0jl17_260x260.png">
+                            </li>
+                            <li class="mgj_footer_helper_item mgj_footer_helper_item_last">
+                                <div>美丽说</div><img class="mgj_footer_helper_quoer_code"
+                                    src="https://s10.mogucdn.com/mlcdn/c45406/190221_60dd5ic9e009acbjb005c8c2k8k89_260x260.png">
+                            </li>
+                            <li class="mgj_footer_helper_item mgj_footer_helper_item_last">
+                                <div>uni引力</div><img class="mgj_footer_helper_quoer_code"
+                                    src="https://s10.mogucdn.com/mlcdn/c45406/181029_1e2kfd9la7jg28063eleikgj3k033_158x144.png">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="mgj_footer_mgjinfo">
+                <ul class="mgj_footer_mgjinfo_list clearfix">
+                    <li class="mgj_footer_mgjinfo_item"><a rel="nofollow" target="_blank"
+                            href="javascript:;">关于我们</a>
+                    </li>
+                    <li class="mgj_footer_mgjinfo_item"><a rel="nofollow" target="_blank"
+                            href="javascript:;">招聘信息</a>
+                    </li>
+                    <li class="mgj_footer_mgjinfo_item"><a rel="nofollow" target="_blank"
+                            href="javascript:;">联系我们</a>
+                    </li>
+                    <li class="mgj_footer_mgjinfo_item"><a rel="nofollow" target="_blank"
+                            href="javascript:;">商家入驻</a>
+                    </li>
+                    <li class="mgj_footer_mgjinfo_item"><a rel="nofollow" target="_blank"
+                            href="javascript:;">商家后台</a>
+                    </li>
+                    <li class="mgj_footer_mgjinfo_item"><a rel="nofollow" target="_blank"
+                            href="javascript:;">商家社区</a>
+                    </li>
+                    <li class="mgj_footer_mgjinfo_item"><a rel="nofollow" target="_blank"
+                            href="javascript:;">规则中心</a>
+                    </li>
+                    <li class="mgj_footer_mgjinfo_item"><a rel="nofollow" target="_blank"
+                            href="javascript:;">规则众议院</a>
+                    </li>
+                    <li class="mgj_footer_mgjinfo_item"><a rel="nofollow" target="_blank"
+                            href="javascript:;">有害信息举报</a>
+                    </li>
+                    <li class="mgj_footer_mgjinfo_item"><a rel="nofollow" target="_blank"
+                            href="javascript:;">用户隐私保护</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="mgj_footer_hostname"><span>©2019 Mogu.com 杭州卷瓜网络有限公司</span></div>
+            <div class="mgj_footer_copyright">
+                <p class="mgj_footer_copyright_container"><span class="mgj_footer_copyright_span">营业执照：</span><a
+                        rel="nofollow" target="_blank" class="mgj_footer_a"
+                        href="javascript:;">913301065526808764</a><b
+                        class="mgj_footer_b"> | </b><span class="mgj_footer_copyright_span"></span><a rel="nofollow"
+                        target="_blank" class="mgj_footer_a"
+                        href="javascript:;">营业性演出许可证</a><b
+                        class="mgj_footer_b"> | </b><span class="mgj_footer_copyright_span"></span><a rel="nofollow"
+                        target="_blank" class="mgj_footer_a"
+                        href="javascript:;">网络文化经营许可证</a><b
+                        class="mgj_footer_b"> | </b><span class="mgj_footer_copyright_span">增值电信业务经营许可证：</span><a
+                        rel="nofollow" target="_blank" class="mgj_footer_a"
+                        href="javascript:;">浙B2-20110349</a><b
+                        class="mgj_footer_b"> | </b><span class="mgj_footer_copyright_span"></span><a rel="nofollow"
+                        target="_blank" class="mgj_footer_a"
+                        href="javascript:;">安全责任书</a><b
+                        class="mgj_footer_b"> | </b><span class="mgj_footer_copyright_span"></span></p>
+                <div class="mgj_footer_a"><img class="mgj_footer_a_img"
+                        src="https://s3.mogucdn.com/mlcdn/c45406/190515_0gei4681dhlh0cf9ch0g33j97d88l_20x20.png">浙公网安备
+                    33010602010221号</div><b class="mgj_footer_b"> | </b><span
+                    class="mgj_footer_copyright_span"></span><a rel="nofollow" target="_blank" class="mgj_footer_a"
+                    href="javascript:;">互联网药品信息服务资格证书编号：（浙)-经营性-2018-0002</a><b
+                    class="mgj_footer_b"> | </b><span class="mgj_footer_copyright_span"></span><a rel="nofollow"
+                    target="_blank" class="mgj_footer_a"
+                    href="javascript:;">浙网食A33010003</a><b
+                    class="mgj_footer_b"> | </b><span class="mgj_footer_copyright_span"></span><a rel="nofollow"
+                    target="_blank" class="mgj_footer_a"
+                    href="javascript:;">出版物网络交易平台服务经营备案证</a><b
+                    class="mgj_footer_b"> | </b><span class="mgj_footer_copyright_span"></span><a rel="nofollow"
+                    target="_blank" class="mgj_footer_a"
+                    href="javascript:;">(浙)网械平台备字[2018]第00006号</a><b
+                    class="mgj_footer_b"> | </b>
+                <p></p>
             </div>
         </div>
     </div>

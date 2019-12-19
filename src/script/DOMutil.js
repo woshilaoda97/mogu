@@ -89,11 +89,13 @@ Ele.fn.addClass = function (classname) {
 }
 //删除className
 Ele.fn.removeClass = function (classname) {
-
     if (classname) {//如果有参数则删除参数类
         for (let v of this.ele) {
             let attr = v.getAttribute('class');
-            v.setAttribute('class', attr.replace(new RegExp(`\\s${classname}`), ''));
+            let reg = new RegExp(`\\s\*${classname}`)
+            if(reg.test(attr)){
+                v.setAttribute('class', attr.replace(reg, ''));
+            }
         }
     } else {//否则清空
         this.ele[0].setAttribute('class', '');
@@ -103,7 +105,7 @@ Ele.fn.removeClass = function (classname) {
 //更改/添加/读取属性
 Ele.fn.attr = function (key, value) {
     if (!value) {
-        this.ele[0].getAttribute(key);
+        return this.ele[0].getAttribute(key);
     } else {
         this.ele[0].setAttribute(key, value);
         return this;
@@ -157,9 +159,11 @@ Ele.fn.top = function (index) {
 /***********************************************************筛选************************************************************/
 //获取子节点
 Ele.fn.children = function () {
-    this.ele = [...this.ele[0].children];
-    this.length = this.ele.length
-    return this;
+    let arr = [];
+    this.ele.forEach(v=>{
+        arr.push(...v.children)
+    })
+    return $(arr);
 }
 //eq
 Ele.fn.eq = function (num) {
@@ -175,9 +179,23 @@ Ele.fn.siblings = function () {
             arr.push(v);
         }
     }
-    // this.ele = arr;
-    // this.length = arr.length;
     return $(arr);
+}
+//获取第一个
+Ele.fn.first = function(){
+    return $(this.ele[0]);
+}
+//获取最后一个
+Ele.fn.last = function(){
+    return $(this.ele[this.length-1]);
+}
+//获取第一个子元素
+Ele.fn.firstChild = function(){
+    return this.children().first();
+}
+//获取最后一个子元素
+Ele.fn.lastChild = function(){
+    return this.children().last();
 }
 /*********************************************************文档处理************************************************************/
 //插入元素

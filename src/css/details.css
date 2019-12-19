@@ -2736,7 +2736,6 @@ em {
 .J-shop-user-info .name-wrap .name {
   float: left;
   margin-right: 5px;
-  display: inline-block;
   text-overflow: ellipsis;
   overflow: hidden;
   color: #333;
@@ -3275,7 +3274,6 @@ img {
 }
 .vip-level {
   float: left;
-  display: inline-block;
   width: 42px;
   height: 14px;
   margin-top: 4px;
@@ -3607,29 +3605,6 @@ img {
   border: 1px solid #ff1d46;
   background-color: #ff1d46;
 }
-.vp_shake {
-  -webkit-animation: "pop_shake" 0.5s ease;
-}
-@-webkit-keyframes pop_shake {
-  0% {
-    -webkit-transform: translateX(0);
-  }
-  20% {
-    -webkit-transform: translateX(-30px);
-  }
-  40% {
-    -webkit-transform: translateX(15px);
-  }
-  60% {
-    -webkit-transform: translateX(-7px);
-  }
-  80% {
-    -webkit-transform: translateX(3px);
-  }
-  to {
-    -webkit-transform: translateX(0);
-  }
-}
 .dapei-container {
   border: 1px solid #e5e5e5;
 }
@@ -3733,7 +3708,6 @@ img {
   line-height: 28px;
   text-align: center;
   cursor: pointer;
-  vertical-align: middle;
   position: relative;
   padding-right: 10px;
 }
@@ -3768,7 +3742,7 @@ img {
 }
 .dapei-body .dapei-body-items .dapei-body-items-item .dapei-sku-body .content {
   max-height: 392px;
-  _height: 392px;
+  height: 392px;
   width: 485px;
   border: 1px solid #ef2f23;
   background-color: #fff;
@@ -4054,7 +4028,6 @@ img {
   float: left;
   width: 24px;
   height: 25px;
-  display: inline-block;
   cursor: pointer;
 }
 .dapei-body .dapei-body-items .dapei-body-items-item .dapei-sku-body .content .pannel-box .sku-num .num-reduce {
@@ -4098,6 +4071,9 @@ img {
 .dapei-body .dapei-body-items .dapei-body-items-item .dapei-sku-body .content .pannel-action {
   display: block;
   padding: 0 0 20px 60px;
+}
+.bigsize{
+  font-size: 20px;
 }
 .dapei-body .dapei-body-items .dapei-body-items-item .dapei-sku-body .content .confirm {
   height: 40px;
@@ -5948,6 +5924,7 @@ img {
 }
 .goods-topimg .small-img ul li {
   width: 60px;
+  height: 60px;
   opacity: 0.5;
   filter: alpha(opacity=50);
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";

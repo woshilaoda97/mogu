@@ -36,13 +36,13 @@ class GoodList {
         $('.li').get(0).innerHTML = '';
         for (let v of data) {
             $('.li')
-                .eq(this.minHeight())
-                .html(this.$picMode.clone({
-                    'data-wrap-a': { style: `height:${v.mpicheight}rem`,sid:v.gid},
-                    'data-main-img': { src: v.picurls.split(';')[0] },
-                    'data-name-p': { text: v.name },
-                    'data-price-p': { text: '￥' + v.price }
-                }, 'text'),true)
+            .eq(this.minHeight())
+            .html(this.$picMode.clone({
+                'data-wrap-a': { style: `height:${v.mpicheight}rem`,href:`./details.html?gid=${v.gid}`,target:"_blank"},
+                'data-main-img': { src: v.picurls.split(';')[0] },
+                'data-name-p': { text: v.name },
+                'data-price-p': { text: '￥' + v.price }
+            }, 'text'),true)
         }
     }
     //每次获取新的列；返回出高度最短列的索引
