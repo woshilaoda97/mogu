@@ -18,6 +18,10 @@ class Detail {
             data: { gid: this.gid },
             dataType: 'json',
         }).then(([data]) => {
+<<<<<<< HEAD
+=======
+            console.log(data);
+>>>>>>> 打包
             $('title').html(data.name)
             this.pics = data.picurls.split(';');
             //小图列表
@@ -53,4 +57,8 @@ class Detail {
         })
     }
 }
+<<<<<<< HEAD
 new Detail().init();
+=======
+export default Detail
+>>>>>>> 打包

@@ -25,11 +25,13 @@ const source = require('vinyl-source-stream');//文件流
 //2.gulp.src('url'):引入文件的路径
 //3.pipe 管道流
 //4.gulp.dest():输出文件的路径，自动创建对应的文件名称。
-//5.
-gulp.task('copyfile', function () {
-    return gulp.src('src/font/*')
-        .pipe(gulp.dest('dist/font/'));
-});
+
+//2.copy文件
+// gulp.task('copyfile', function () {
+//     return gulp.src('src/font/*')
+//         .pipe(gulp.dest('dist/font/'));
+// });
+
 //3.html文件的压缩
 gulp.task('uglifyhtml', function () {
     return gulp.src('src/*.html')
@@ -83,7 +85,7 @@ gulp.task('runimg', function () {
 //8.让原生js支持模块化开发--require
 gulp.task("browserify", function () {
     var b = browserify({
-        entries: "dist/script/index.js"//入口文件
+        entries: "dist/script/module.js"//入口文件
     });
 
     return b.bundle()
@@ -96,8 +98,10 @@ gulp.task("browserify", function () {
 gulp.task('default',function(){
     //文件路径
     //watch:监听
-    watch(['src/font/*','src/*.html','src/sass/*.scss','src/script/*.js','src/img/*.png','bundle.js'],
-    gulp.parallel('copyfile','uglifyhtml','compilesass','uglifyjs','runimg','browserify'));
+    watch(['src/*.html','src/sass/*.scss','src/script/*.js','src/img/*.png','bundle.js'],
+    gulp.parallel('uglifyhtml','compilesass','uglifyjs','runimg','browserify'));
     //gulp.parallel():让任务并行。
 });
+
+
 

@@ -2,7 +2,11 @@ import { ajax } from './util/util.js'
 import { $ } from './util/DOMutil.js';
 import { TabSwitch } from './effect/effect.js';
 import { Message } from './plugin/plugin.js';
+<<<<<<< HEAD
 class Detail {
+=======
+class Lr {
+>>>>>>> 打包
     constructor() {
         this.$btns = $('.login_mod_tab').children();
         this.$contents = $('#signform').children();
@@ -12,7 +16,11 @@ class Detail {
     init() {
         let tabSwitch = new TabSwitch(this.$btns,this.$contents);
         tabSwitch.init();
+<<<<<<< HEAD
         this.registry();
+=======
+        // this.registry();
+>>>>>>> 打包
     }
     registry(){
         let $username = this.$rtinputs.eq(0);
@@ -27,4 +35,8 @@ class Detail {
         })
     }
 }
+<<<<<<< HEAD
 new Detail().init();
+=======
+export default Lr
+>>>>>>> 打包
