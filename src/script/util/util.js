@@ -24,8 +24,14 @@ const toolcookie = {
 }
 
 //缓冲运动
- const bufferMove = function(obj, json, fn) {
+ const bufferMove = function(obj, json, fn, s) {
     var speed = 0;
+    s = s || {factor:15,frame:100}
+    if(Array.isArray(s)){
+        s = {factor:s[0],frame:s[1]};
+    }
+    let factor = s.factor;
+    let frame = s.frame;
     function getStyle(obj, attr) {
         if (window.getComputedStyle) {
             return window.getComputedStyle(obj)[attr];
@@ -48,7 +54,7 @@ const toolcookie = {
                 currentValue = parseInt(getStyle(obj, attr));
             }
             //2.求速度
-            speed = (json[attr] - currentValue) / 15; //10：运动因子
+            speed = (json[attr] - currentValue) / factor; //10：运动因子
             speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
             //3.判断运动开启和停止
             if (currentValue !== json[attr]) { //没到目标继续运动
@@ -65,7 +71,7 @@ const toolcookie = {
             clearInterval(obj.timer);
             fn && typeof fn === 'function' && fn(); //运动完成，执行回调函数。
         }
-    }, 10);
+    }, 1000/frame);
 }
 //ajax
 const ajax = function (obj){

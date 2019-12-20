@@ -6205,3 +6205,19 @@ body.is-pintuan .J_NowPrice_Wrap .property-extra {
   margin-left: 20px;
   color: #ef2f23;
 }
+.tofixed {
+  position: fixed;
+  top: -1.03rem;
+  right: 0;
+  left: 0;
+  z-index: 3;
+  box-sizing: content-box;
+  background-color: white;
+  box-shadow: 0 1px 6px 0 #ccc;
+}
+#header-search{
+    width: 100%;
+    height: 102px;
+    margin: 0 auto;
+    background-color: white;
+}

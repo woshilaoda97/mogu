@@ -78,7 +78,7 @@ Ele.fn.addClass = function (classname) {
     for (let v of this.ele) {//不存在则添加
         let attr = v.getAttribute('class');
         if (attr) {
-            if (!new RegExp(`\\s${classname}$|\\s${classname}\\s`).test(attr)) {
+            if (!new RegExp(`\\s${classname}$|\\s${classname}\\s|${classname}`).test(attr)) {
                 v.setAttribute('class', attr + ' ' + classname);
             }
         } else {
@@ -93,7 +93,7 @@ Ele.fn.removeClass = function (classname) {
         for (let v of this.ele) {
             let attr = v.getAttribute('class');
             let reg = new RegExp(`\\s\*${classname}`)
-            if(reg.test(attr)){
+            if (reg.test(attr)) {
                 v.setAttribute('class', attr.replace(reg, ''));
             }
         }
@@ -120,11 +120,13 @@ Ele.fn.clearStyle = function () {
 //设置/获取css
 Ele.fn.css = function (text) {
     if (stypeof(text) === 'object') {//如果是对象则添加css
-        let str = '';
-        for (let v in text) {
-            str += `${v}:${text[v]};`
-        }
-        this.ele[0].style.cssText += str;
+        this.ele.forEach(v => {
+            let str = '';
+            for (let v in text) {
+                str += `${v}:${text[v]};`
+            }
+            v.style.cssText += str;
+        })
         return this;
     } else if (stypeof(text) === 'string') {//如果是字符串则返回字符串属性的属性值
         if (getComputedStyle) {
@@ -157,10 +159,18 @@ Ele.fn.top = function (index) {
     return this.ele[index].offsetTop;
 }
 /***********************************************************筛选************************************************************/
+//获取父节点
+Ele.fn.parent = function () {
+    let arr = [];
+    this.ele.forEach(v => {
+        arr.push(v.parentNode)
+    })
+    return $(arr);
+}
 //获取子节点
 Ele.fn.children = function () {
     let arr = [];
-    this.ele.forEach(v=>{
+    this.ele.forEach(v => {
         arr.push(...v.children)
     })
     return $(arr);
@@ -182,26 +192,35 @@ Ele.fn.siblings = function () {
     return $(arr);
 }
 //获取第一个
-Ele.fn.first = function(){
+Ele.fn.first = function () {
     return $(this.ele[0]);
 }
 //获取最后一个
-Ele.fn.last = function(){
-    return $(this.ele[this.length-1]);
+Ele.fn.last = function () {
+    return $(this.ele[this.length - 1]);
 }
 //获取第一个子元素
-Ele.fn.firstChild = function(){
+Ele.fn.firstChild = function () {
     return this.children().first();
 }
 //获取最后一个子元素
-Ele.fn.lastChild = function(){
+Ele.fn.lastChild = function () {
     return this.children().last();
 }
 /*********************************************************文档处理************************************************************/
 //插入元素
 Ele.fn.append = function ($obj) {
-    this.ele[0].appendChild($obj.get());
+    this.ele.forEach((v) => {
+        v.appendChild($obj.get());
+    })
     return this;
+}
+//删除元素
+Ele.fn.remove = function () {
+    console.log(this.parent().get(), this.ele[0]);
+    this.ele.forEach((v) => {
+        this.parent().get().removeChild(this.ele[0]);
+    })
 }
 //DOM克隆
 Ele.fn.clone = function (data, dataType) {/*clone:
@@ -255,6 +274,19 @@ Ele.fn.on = function (eventType, callback) {
     }
     return this;
 }
+Ele.fn.hover = function (overfn, outfn) {
+    if (this.ele[0].addEventListener) {
+        for (let v of this.ele) {//将回调函数中的this指向绑定的Ele对象
+            v.addEventListener('mouseover', overfn.bind($(v)), true);
+            v.addEventListener('mouseout', outfn.bind($(v)), true);
+        }
+    } else {
+        for (let v of this.ele) {
+            v.attachEvent('onmouseover', overfn.bind($(v)));
+            v.attachEvent('mouseout', outfn.bind($(v)));
+        }
+    }
+}
 /***********************************************************效果************************************************************/
 //显示元素
 Ele.fn.show = function () {
@@ -271,3 +303,38 @@ Ele.fn.hide = function () {
     return this;
 }
 //animation动画效果
+// Ele.fn.animate = function (data, time, fn) {
+//     var speed = 0;
+//     clearInterval(obj.timer); //防止事件下面定时器叠加
+//     obj.timer = setInterval(function () {
+//         var flag = true; //假设运动已经结束
+//         //开始属性遍历运动
+//         for (var attr in data) { //attr:css属性名称  data[attr]:目标点 前面的target
+//             //1.求当前的css属性值
+//             var currentValue = null;
+//             if (attr === 'opacity') { //透明度
+//                 // currentValue =  getStyle(obj, attr) * 100;
+//                 currentValue = this.css(attr)
+//             } else { //px单位的属性
+//                 data[attr] = parseInt(data[attr]);//如果不是透明度则将目标值取整
+//                 currentValue = parseInt(getStyle(obj, attr));
+//             }
+//             speed = (data[attr] - currentValue) / 15; //10：运动因子
+//             speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+//             //3.判断运动开启和停止
+//             if (currentValue !== data[attr]) { //没到目标继续运动
+//                 if (attr === 'opacity') { //透明度
+//                     obj.style.opacity = (currentValue + speed) / 100;
+//                     obj.style.filter = 'alpha(opacity=' + (currentValue + speed) + ');'; //IE
+//                 }
+//                 obj.style[attr] = currentValue + speed + 'px'; //属性一定要用中括号。
+//                 flag = false; //运动没有结束
+//             }
+//         }
+
+//         if (flag) { //判断所有的属性都已经到了目标点了，如果没到继续运动falg=false,不满足此条件
+//             clearInterval(obj.timer);
+//             fn && typeof fn === 'function' && fn(); //运动完成，执行回调函数。
+//         }
+//     }, 10);
+// }

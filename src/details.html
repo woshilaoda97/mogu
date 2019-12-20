@@ -14,7 +14,7 @@
 
 <body class="media_screen_1200">
     <!-- header -->
-    <div id="header" class="site-top-header J_siteheader header_mid shop-info-search-header" data-ptp="_head">
+    <div id="header" class="site-top-header J_siteheader header_mid shop-info-search-header">
         <div class="header-nav">
             <div class="header-nav-wrap J_header_nav">
                 <div class="header-nav-content">
@@ -30,44 +30,47 @@
                 </div>
             </div>
         </div>
-        <div class="wrap clearfix" style="margin:0 0 20px auto;">
-            <div class="search-nav-content clearfix">
-                <!-- 搜索框 -->
-                <div class="normal-search-content">
-                    <div class="top-nav-search" id="top-nav-search">
-                        <input type="submit" class="searchInShop J-searchInShop" value="搜本店">
-                        <div class="search_inner_box clearfix">
-                            <form class="top-nav-form" id="top-nav-form" action="" method="get">
-                                <input type="text" id="top_nav_text" class="ts_txt fl" placeholder="打底衫" name="q"
-                                    value="" autocomplete="off">
-                                <input type="submit" value="搜全站" class="ts_btn" id="top_nav_btn">
-                            </form>
+        <div id='header-search'>
+            <div class="clearfix" style="width:1000px;margin:0 auto">
+                <div class="search-nav-content clearfix">
+                    <!-- 搜索框 -->
+                    <div class="normal-search-content">
+                        <div class="top-nav-search" id="top-nav-search">
+                            <input type="submit" class="searchInShop J-searchInShop" value="搜本店">
+                            <div class="search_inner_box clearfix">
+                                <form class="top-nav-form" id="top-nav-form" action="" method="get">
+                                    <input type="text" id="top_nav_text" class="ts_txt fl" placeholder="打底衫" name="q"
+                                        value="" autocomplete="off">
+                                    <input type="submit" value="搜全站" class="ts_btn" id="top_nav_btn">
+                                </form>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- 导航信息 -->
-                <div class="site-top-nav J_sitenav">
-                    <div class="header-nav-list">
-                        <!-- 消息 -->
-                        <div class="header-message-center fl"><a rel="nofollow" href="javascript:;"
-                                class="mogutalk_btn header-message-icon nav-list-item"></a>消息<span
-                                class="num m_num"></span></div>
-                        <!-- 收藏 --><a class="header-fav-center fl" href="javascript:;" target="_blank">
-                            <p class="header-fav-icon nav-list-item"></p>收藏
-                        </a><!-- 购物车 --><a class="header-cart-center fl" href="javascript:;">
-                            <p class="header-cart-icon nav-list-item"></p>购物车
-                        </a><!-- 下载APP -->
-                        <div class="header-download-center J_show_app_code fl">
-                            <p class="header-download-icon nav-list-item"></p>下载APP<div class="download-app-code"><img
-                                    src="https://s10.mogucdn.com/mlcdn/c45406/190521_2ec360a8f76giijel4e95g9h3i3ci_199x217.png">
-                            </div><img class="app-code-hot-dot" style="display: block;"
-                                src="https://s10.mogucdn.com/mlcdn/c45406/190221_5i6j6d3khieh48123j13age0fh9eh_8x8.png">
-                        </div><!-- 我的 -->
-                        <div class="header-user-info fr"><a rel="nofollow" class="J_header-login header-login"
-                                href="./loginRigstry.html"><img
-                                    src="https://s10.mogucdn.com/mlcdn/c45406/181016_143l3ehl4ebad6c2326gjk6d4h41g_48x48.png"
-                                    class="header-login-icon" alt="">登录</a></div>
+                    <!-- 导航信息 -->
+                    <div class="site-top-nav J_sitenav">
+                        <div class="header-nav-list">
+                            <!-- 消息 -->
+                            <div class="header-message-center fl"><a rel="nofollow" href="javascript:;"
+                                    class="mogutalk_btn header-message-icon nav-list-item"></a>消息<span
+                                    class="num m_num"></span></div>
+                            <!-- 收藏 --><a class="header-fav-center fl" href="javascript:;" target="_blank">
+                                <p class="header-fav-icon nav-list-item"></p>收藏
+                            </a><!-- 购物车 --><a class="header-cart-center fl" href="javascript:;">
+                                <p class="header-cart-icon nav-list-item"></p>购物车
+                            </a><!-- 下载APP -->
+                            <div class="header-download-center J_show_app_code fl">
+                                <p class="header-download-icon nav-list-item"></p>下载APP<div class="download-app-code">
+                                    <img
+                                        src="https://s10.mogucdn.com/mlcdn/c45406/190521_2ec360a8f76giijel4e95g9h3i3ci_199x217.png">
+                                </div><img class="app-code-hot-dot" style="display: block;"
+                                    src="https://s10.mogucdn.com/mlcdn/c45406/190221_5i6j6d3khieh48123j13age0fh9eh_8x8.png">
+                            </div><!-- 我的 -->
+                            <div class="header-user-info fr"><a rel="nofollow" class="J_header-login header-login"
+                                    href="./loginRigstry.html"><img
+                                        src="https://s10.mogucdn.com/mlcdn/c45406/181016_143l3ehl4ebad6c2326gjk6d4h41g_48x48.png"
+                                        class="header-login-icon" alt="">登录</a></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -207,8 +210,7 @@
     <div class="foot J_siteFooter"
         style="background-image: url(&quot;https://s10.mogucdn.com/mlcdn/c45406/181031_40flk9d5hkkjf44246248clfl77f1_1440x500.jpg&quot;);">
         <div class="mgj_copyright">
-            <div class="mgj_footer_icon"><a rel="nofollow" target="_blank"
-                    href="javascript:;"><img
+            <div class="mgj_footer_icon"><a rel="nofollow" target="_blank" href="javascript:;"><img
                         src="https://s10.mogucdn.com/mlcdn/c45406/181112_4a8ch8fac2i12ib313hif4da35ed3_280x76.png"></a>
             </div>
             <div class="mgj_footer_helper clearfix">
@@ -292,71 +294,52 @@
             </div>
             <div class="mgj_footer_mgjinfo">
                 <ul class="mgj_footer_mgjinfo_list clearfix">
-                    <li class="mgj_footer_mgjinfo_item"><a rel="nofollow" target="_blank"
-                            href="javascript:;">关于我们</a>
+                    <li class="mgj_footer_mgjinfo_item"><a rel="nofollow" target="_blank" href="javascript:;">关于我们</a>
                     </li>
-                    <li class="mgj_footer_mgjinfo_item"><a rel="nofollow" target="_blank"
-                            href="javascript:;">招聘信息</a>
+                    <li class="mgj_footer_mgjinfo_item"><a rel="nofollow" target="_blank" href="javascript:;">招聘信息</a>
                     </li>
-                    <li class="mgj_footer_mgjinfo_item"><a rel="nofollow" target="_blank"
-                            href="javascript:;">联系我们</a>
+                    <li class="mgj_footer_mgjinfo_item"><a rel="nofollow" target="_blank" href="javascript:;">联系我们</a>
                     </li>
-                    <li class="mgj_footer_mgjinfo_item"><a rel="nofollow" target="_blank"
-                            href="javascript:;">商家入驻</a>
+                    <li class="mgj_footer_mgjinfo_item"><a rel="nofollow" target="_blank" href="javascript:;">商家入驻</a>
                     </li>
-                    <li class="mgj_footer_mgjinfo_item"><a rel="nofollow" target="_blank"
-                            href="javascript:;">商家后台</a>
+                    <li class="mgj_footer_mgjinfo_item"><a rel="nofollow" target="_blank" href="javascript:;">商家后台</a>
                     </li>
-                    <li class="mgj_footer_mgjinfo_item"><a rel="nofollow" target="_blank"
-                            href="javascript:;">商家社区</a>
+                    <li class="mgj_footer_mgjinfo_item"><a rel="nofollow" target="_blank" href="javascript:;">商家社区</a>
                     </li>
-                    <li class="mgj_footer_mgjinfo_item"><a rel="nofollow" target="_blank"
-                            href="javascript:;">规则中心</a>
+                    <li class="mgj_footer_mgjinfo_item"><a rel="nofollow" target="_blank" href="javascript:;">规则中心</a>
                     </li>
-                    <li class="mgj_footer_mgjinfo_item"><a rel="nofollow" target="_blank"
-                            href="javascript:;">规则众议院</a>
+                    <li class="mgj_footer_mgjinfo_item"><a rel="nofollow" target="_blank" href="javascript:;">规则众议院</a>
                     </li>
-                    <li class="mgj_footer_mgjinfo_item"><a rel="nofollow" target="_blank"
-                            href="javascript:;">有害信息举报</a>
+                    <li class="mgj_footer_mgjinfo_item"><a rel="nofollow" target="_blank" href="javascript:;">有害信息举报</a>
                     </li>
-                    <li class="mgj_footer_mgjinfo_item"><a rel="nofollow" target="_blank"
-                            href="javascript:;">用户隐私保护</a>
+                    <li class="mgj_footer_mgjinfo_item"><a rel="nofollow" target="_blank" href="javascript:;">用户隐私保护</a>
                     </li>
                 </ul>
             </div>
             <div class="mgj_footer_hostname"><span>©2019 Mogu.com 杭州卷瓜网络有限公司</span></div>
             <div class="mgj_footer_copyright">
                 <p class="mgj_footer_copyright_container"><span class="mgj_footer_copyright_span">营业执照：</span><a
-                        rel="nofollow" target="_blank" class="mgj_footer_a"
-                        href="javascript:;">913301065526808764</a><b
+                        rel="nofollow" target="_blank" class="mgj_footer_a" href="javascript:;">913301065526808764</a><b
                         class="mgj_footer_b"> | </b><span class="mgj_footer_copyright_span"></span><a rel="nofollow"
-                        target="_blank" class="mgj_footer_a"
-                        href="javascript:;">营业性演出许可证</a><b
-                        class="mgj_footer_b"> | </b><span class="mgj_footer_copyright_span"></span><a rel="nofollow"
-                        target="_blank" class="mgj_footer_a"
-                        href="javascript:;">网络文化经营许可证</a><b
-                        class="mgj_footer_b"> | </b><span class="mgj_footer_copyright_span">增值电信业务经营许可证：</span><a
-                        rel="nofollow" target="_blank" class="mgj_footer_a"
-                        href="javascript:;">浙B2-20110349</a><b
-                        class="mgj_footer_b"> | </b><span class="mgj_footer_copyright_span"></span><a rel="nofollow"
-                        target="_blank" class="mgj_footer_a"
-                        href="javascript:;">安全责任书</a><b
-                        class="mgj_footer_b"> | </b><span class="mgj_footer_copyright_span"></span></p>
+                        target="_blank" class="mgj_footer_a" href="javascript:;">营业性演出许可证</a><b class="mgj_footer_b"> |
+                    </b><span class="mgj_footer_copyright_span"></span><a rel="nofollow" target="_blank"
+                        class="mgj_footer_a" href="javascript:;">网络文化经营许可证</a><b class="mgj_footer_b"> | </b><span
+                        class="mgj_footer_copyright_span">增值电信业务经营许可证：</span><a rel="nofollow" target="_blank"
+                        class="mgj_footer_a" href="javascript:;">浙B2-20110349</a><b class="mgj_footer_b"> | </b><span
+                        class="mgj_footer_copyright_span"></span><a rel="nofollow" target="_blank" class="mgj_footer_a"
+                        href="javascript:;">安全责任书</a><b class="mgj_footer_b"> | </b><span
+                        class="mgj_footer_copyright_span"></span></p>
                 <div class="mgj_footer_a"><img class="mgj_footer_a_img"
                         src="https://s3.mogucdn.com/mlcdn/c45406/190515_0gei4681dhlh0cf9ch0g33j97d88l_20x20.png">浙公网安备
                     33010602010221号</div><b class="mgj_footer_b"> | </b><span
                     class="mgj_footer_copyright_span"></span><a rel="nofollow" target="_blank" class="mgj_footer_a"
-                    href="javascript:;">互联网药品信息服务资格证书编号：（浙)-经营性-2018-0002</a><b
-                    class="mgj_footer_b"> | </b><span class="mgj_footer_copyright_span"></span><a rel="nofollow"
-                    target="_blank" class="mgj_footer_a"
-                    href="javascript:;">浙网食A33010003</a><b
-                    class="mgj_footer_b"> | </b><span class="mgj_footer_copyright_span"></span><a rel="nofollow"
-                    target="_blank" class="mgj_footer_a"
-                    href="javascript:;">出版物网络交易平台服务经营备案证</a><b
-                    class="mgj_footer_b"> | </b><span class="mgj_footer_copyright_span"></span><a rel="nofollow"
-                    target="_blank" class="mgj_footer_a"
-                    href="javascript:;">(浙)网械平台备字[2018]第00006号</a><b
-                    class="mgj_footer_b"> | </b>
+                    href="javascript:;">互联网药品信息服务资格证书编号：（浙)-经营性-2018-0002</a><b class="mgj_footer_b"> | </b><span
+                    class="mgj_footer_copyright_span"></span><a rel="nofollow" target="_blank" class="mgj_footer_a"
+                    href="javascript:;">浙网食A33010003</a><b class="mgj_footer_b"> | </b><span
+                    class="mgj_footer_copyright_span"></span><a rel="nofollow" target="_blank" class="mgj_footer_a"
+                    href="javascript:;">出版物网络交易平台服务经营备案证</a><b class="mgj_footer_b"> | </b><span
+                    class="mgj_footer_copyright_span"></span><a rel="nofollow" target="_blank" class="mgj_footer_a"
+                    href="javascript:;">(浙)网械平台备字[2018]第00006号</a><b class="mgj_footer_b"> | </b>
                 <p></p>
             </div>
         </div>

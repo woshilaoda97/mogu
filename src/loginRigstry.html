@@ -9,10 +9,12 @@
     <meta name="description"
         content="美丽联合集团是女性时尚媒体和时尚消费平台，通过整合现在已有的资源，包括电商、社区、红人、内容等等，来服务于不同的女性用户。蘑菇街是集团旗下定位于年轻女性用户的时尚媒体与时尚消费类App，核心用户人群为 18-23 岁年轻女性用户。2015年，蘑菇街以当红明星李易峰和“我的买手街”的品牌定位，成功树立了自身以买手精选为核心理念的差异化品牌形象。2016年，迪丽热巴以首席体验官的身份代表广大用户加入蘑菇街，从而更好地为年轻女性用户提供从美妆、穿搭分享到时尚购物的一站式消费体验。">
     <link rel="stylesheet" href="./css/lr.css">
+    <link rel="stylesheet" href="./css/plugin.css">
     <script src="./script/loginRegistry.js" type="module" async="true"></script>
 </head>
 
 <body class="media_screen_1200">
+    <!--  main -->
     <div class="login_wrap">
         <!-- header -->
         <div class="logo_wrap">
@@ -33,50 +35,48 @@
             <div class="lg_left ui-option-main-box" id="lg_content">
                 <!-- tab切换按钮 -->
                 <div class="login_mod_tab">
-                        <a class="fl eb_mod mod tab_on" style="margin-left: 46px;" href="javascript:;">普通登录</a>
-                        <a class="fl eb_mod mod" href="javascript:;" title="手机免密码登入">注册</a>
+                    <a class="fl eb_mod mod tab_on" style="margin-left: 46px;" href="javascript:;">普通登录</a>
+                    <a class="fl eb_mod mod" href="javascript:;" title="手机免密码登入">注册</a>
                 </div>
                 <!-- tab切换主体 -->
                 <div id="signform" class="formbox">
                     <!-- 登陆 -->
-                    <div class="lg_form">
-                        <form method="post" action="">
-                            <fieldset class="mod_box">
-                                <p class="error_tip" style="display: none;">请输入用户名/邮箱/手机号</p>
-
-                                <p class="ui-sign-item">
-                                    <input type="text" class="pwd_text" name="uname" placeholder="用户名/邮箱/手机号" autocomplete='user'>
-                                </p>
-                                <p class="ui-sign-item">
-                                    <input type="password" class="pwd_text" name="pass" placeholder="密码" autocomplete='pass'>
-                                </p>
-                                <div class="lg_login">
-                                    <input type="submit" value="登录" class="sub">
-                                </div>
-                            </fieldset>
-                        </form>
+                    <div id="lg_form" class="lg_form">
+                        <fieldset class="mod_box">
+                            <p class="error_tip" style="display: none;">请输入用户名/邮箱/手机号</p>
+                            <p class="ui-sign-item">
+                                <input type="text" class="pwd_text" name="uname" placeholder="用户名/邮箱/手机号">
+                            </p>
+                            <p class="ui-sign-item">
+                                <input type="password" class="pwd_text" name="pass" placeholder="密码">
+                            </p>
+                            <div class="lg_login">
+                                <input type="submit" value="登录" class="sub">
+                            </div>
+                        </fieldset>
                     </div>
                     <!-- 注册 -->
-                    <div class="lg_form" style="display: none;">
-                        <form method="post" action="">
-                            <fieldset class="mod_box">
-                                <p class="ui-sign-item">
-                                    <input type="text" class="pwd_text" name="uname" placeholder="用户名/邮箱/手机号" autocomplete='user'>
-                                </p>
-                                <p class="ui-sign-item">
-                                    <input type="password" class="pwd_text" name="pass" placeholder="密码" autocomplete='user'>
-                                </p>
-                                <p class="ui-sign-item">
-                                    <input type="password" class="pwd_text" name="pass" placeholder="重复密码" autocomplete='user'>
-                                </p>
-                                <p class="ui-sign-item">
-                                    <input type="password" class="pwd_text" name="pass" placeholder="邮箱"" autocomplete='user'>
-                                </p>
-                                <div class="lg_login">
-                                    <input type="submit" value="登录" class="sub">
-                                </div>
-                            </fieldset>
-                        </form>
+                    <div id="rt_form" class="rt_form" style="display: none;">
+                        <fieldset class="mod_box">
+                            <p class="ui-sign-item">
+                                <input type="text" class="pwd_text" name="username" placeholder="用户名">
+                            </p>
+                            <p class="ui-sign-item">
+                                <input type="password" class="pwd_text" name="pass" placeholder="密码">
+                            </p>
+                            <p class="ui-sign-item">
+                                <input type="password" class="pwd_text" name="repass" placeholder="重复密码">
+                            </p>
+                            <p class="ui-sign-item">
+                                <input type="text" class="pwd_text" name="email" placeholder="邮箱">
+                            </p>
+                            <p class="ui-sign-item">
+                                <input type="tel" class="pwd_text" name="pass" placeholder="电话">
+                            </p>
+                            <div class="lg_login">
+                                <input type="submit" value="注册" class="sub">
+                            </div>
+                        </fieldset>
                     </div>
                 </div>
             </div>

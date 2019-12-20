@@ -1,14 +1,18 @@
-import { $ } from './DOMutil.js';
-import { ajax } from './util.js';
-import {StackHeader} from './effect.js';
+import { $ } from './util/DOMutil.js';
+import { ajax } from './util/util.js';
+import {StickHeader,Upfloat,LazyLoad} from './effect/effect.js';
 class GoodList {
     constructor() {
         this.$wrap = $('#wrap');
         this.$bli = $('.bli');
         this.$picMode = $('.opic').clone();
+        this.maxWidth = parseFloat($('#outer-wrap').css('min-width'))
+        this.canLoad = true;//开始加载图片改为false;在ajax回调中改回true
     }
     init() {
         this.render();
+        new StickHeader($('.header-outer'),this.maxWidth).init();
+        new LazyLoad(this.picLoad.bind(this)).init();
     }
     //渲染
     render() {
@@ -24,11 +28,13 @@ class GoodList {
     }
     picLoad() {
         let _this = this;
+        this.canLoad = 
         ajax({
             url: "http://localhost/mogu/php/good_show.php",
             dataType: "json"
         }).then((data) => {
             _this.picrender(data);
+            new Upfloat($('.opic')).init();//给所有商品框添加hover上浮
         })
     }
     //瀑布流渲染商品
@@ -101,4 +107,3 @@ class GoodList {
     }
 }
 new GoodList().init();
-new StackHeader($('.header-outer')).init();
