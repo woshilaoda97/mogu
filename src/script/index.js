@@ -106,8 +106,4 @@ class GoodList {
         $('#outer-wrap').css({'min-width':`${(minWid + 30) / 100}rem`});
     }
 }
-<<<<<<< HEAD
-new GoodList().init();
-=======
 export default GoodList;
->>>>>>> 打包

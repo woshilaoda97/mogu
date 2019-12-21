@@ -2,11 +2,7 @@ import { ajax } from './util/util.js'
 import { $ } from './util/DOMutil.js';
 import { TabSwitch } from './effect/effect.js';
 import { Message } from './plugin/plugin.js';
-<<<<<<< HEAD
-class Detail {
-=======
 class Lr {
->>>>>>> 打包
     constructor() {
         this.$btns = $('.login_mod_tab').children();
         this.$contents = $('#signform').children();
@@ -25,9 +21,8 @@ class Lr {
         let $email = this.$rtinputs.eq(3);
         let $tel = this.$rtinputs.eq(4);
         let $rtbtn = this.$rtinputs.eq(5)
-        console.log();
         $rtbtn.on('click',function(){
-            console.log($username.get().value);
+            new Message('this is a success message','success',2000).init();
         })
     }
 }

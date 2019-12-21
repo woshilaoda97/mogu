@@ -56,11 +56,7 @@ class TabSwitch {
     }
     init() {
         let _this = this;
-<<<<<<< HEAD
-        this.$btns.on('click', function () {
-=======
         this.$btns.on('click',function(){
->>>>>>> 打包
             _this.changTab(this);
         })
     }
@@ -89,10 +85,6 @@ class LazyLoad {
         this.callback = callback;
     }
     init() {
-<<<<<<< HEAD
-        console.log(1);
-=======
->>>>>>> 打包
         let _this = this;
         window.addEventListener('scroll', function () {
             if (window.scrollY + document.documentElement.clientHeight > document.body.clientHeight - 500) {
