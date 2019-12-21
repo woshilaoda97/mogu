@@ -1,19 +1,28 @@
 .pg-message-wrap {
   position: fixed;
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
-  top: 10px;
+  align-items: center;
+  top: 12px;
   left: 0;
   right: 0;
   margin: 0 auto;
 }
-.pg-message-wrap .span {
+.pg-message-wrap span {
+  display: block;
+  position: relative;
+  bottom: 20px;
+  min-width: 60px;
   padding: 10px 16px;
-  margin-bottom: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  margin-bottom: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  text-indent: 30px;
+  color: #999;
+  border-radius: 6px;
+  overflow: hidden;
 }
 .pg-message-wrap .success {
-  border: 1px solid greenyellow;
+  background: url(../img/success.png) white no-repeat 15px center/15px 15px;
 }
 
 /*# sourceMappingURL=plugin.css.map */

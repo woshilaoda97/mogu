@@ -16,11 +16,7 @@ class Lr {
     init() {
         let tabSwitch = new TabSwitch(this.$btns,this.$contents);
         tabSwitch.init();
-<<<<<<< HEAD
         this.registry();
-=======
-        // this.registry();
->>>>>>> 打包
     }
     registry(){
         let $username = this.$rtinputs.eq(0);
@@ -35,8 +31,4 @@ class Lr {
         })
     }
 }
-<<<<<<< HEAD
-new Detail().init();
-=======
 export default Lr
->>>>>>> 打包
